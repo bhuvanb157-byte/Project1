@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>udayamX - Government Scheme Finder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- SCREEN 1: WELCOME HOMEPAGE -->
+    <div id="landingPage" class="page fade-in">
+        <div class="landing-container">
+            <h1 class="logo-title">udayamX</h1>
+            <p class="quote">"Start your own business with government support. We help you find the right funding plans and scholarships instantly."</p>
+            <button class="btn-primary" onclick="navigateTo('questionnairePage')">Find My Scheme ➔</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: SIMPLE APPLICATION DETAILS -->
+    <div id="questionnairePage" class="page hidden">
+        <div class="form-container">
+            <h2>Tell us about your business idea</h2>
+            <form id="schemeForm" onsubmit="handleFormSubmit(event)">
+                
+                <div class="section-title">Step 1: Personal Profile</div>
+                
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="age">Select Your Age</label>
+                        <input type="number" id="age" name="age" min="18" max="100" placeholder="Example: 25" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">-- Select --</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Transgender">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="caste">Social Category (Caste Group)</label>
+                        <select id="caste" name="caste" required>
+                            <option value="">-- Select --</option>
+                            <option value="General">General Category (Open)</option>
+                            <option value="OBC">OBC (Other Backward Classes)</option>
+                            <option value="SC">SC (Scheduled Caste)</option>
+                            <option value="ST">ST (Scheduled Tribe)</option>
+                            <option value="EWS">EWS (Economically Weaker Section)</option>
+                            <option value="Minority">Minority Community</option>
+                        </select>
+                        <p class="tooltip-text">ℹ️ We ask this because the government offers special low-interest loans or extra subsidies for specific social groups.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education">Highest Education Level</label>
+                        <select id="education" name="education" required>
+                            <option value="">-- Select --</option>
+                            <option value="Under Matric">Below 10th Class</option>
+                            <option value="12th Pass">10th or 12th Class Pass</option>
+                            <option value="Diploma/ITI">Diploma / ITI Certificate</option>
+                            <option value="Graduate">College Graduate (B.A, B.Sc, B.Tech, etc.)</option>
+                            <option value="Post Graduate">Post Graduate & Above</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 1rem;">Step 2: Business & Budget Profile</div>
+
+                <div class="form-group">
+                    <label for="state">Select Your State / UT</label>
+                    <select id="state" name="state" required>
+                        <option value="">-- Select State --</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessType">Enter Business Type / Sector</label>
+                    <input type="text" id="businessType" name="businessType" placeholder="Example: Kirana Shop, Poultry Farm, Tech Startup" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">Estimated Startup Budget Requirement</label>
+                    <select id="budget" name="budget" required>
+                        <option value="">-- Select Budget Range --</option>
+                        <option value="low">Under ₹5 Lakhs (Micro Startups)</option>
+                        <option value="mid">₹5 Lakhs - ₹25 Lakhs (Small Scale)</option>
+                        <option value="high">Above ₹25 Lakhs (Medium to Large)</option>
+                    </select>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn-secondary" onclick="navigateTo('landingPage')">⬅ Back</button>
+                    <button type="submit" class="btn-primary">Search Government Schemes 🔍</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCREEN 3: MATURED RESULTS SCREEN -->
+    <div id="resultsPage" class="page hidden">
+        <div class="results-container">
+            <h2>Your Matching Government Schemes</h2>
+            <p class="results-subtext">Based on the details you filled in, these plans fit your profile best:</p>
+            
+            <div id="activeFilters" class="filter-badges-container">
+                <!-- Data tags get printed cleanly here -->
+            </div>
+            
+            <!-- Accessible Loading Animation -->
+            <div id="loadingSpinner" class="spinner-container hidden">
+                <div class="spinner"></div>
+                <p>Checking live central and state government portals... Please wait.</p>
+            </div>
+
+            <div id="schemesList" class="schemes-grid">
+                <!-- Database cards render securely here -->
+            </div>
+            
+            <div class="btn-group" style="margin-top: 2.5rem;">
+                <button class="btn-secondary" onclick="navigateTo('questionnairePage')" style="width: 48%;">⬅ Change My Answers</button>
+                <button class="btn-primary" onclick="window.print()" style="width: 48%; background-color: #0d9488;">Save as PDF / Print 📄</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT INFRASTRUCTURE -->
+    <script>
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+                page.classList.remove('fade-in');
+            });
+            
+            const targetPage = document.getElementById(pageId);
+            targetPage.classList.remove('hidden');
+            setTimeout(() => {
+                targetPage.classList.add('fade-in');
+            }, 50);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Clean object capture for backend developers
+            const userFormData = {
+  
