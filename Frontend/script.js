@@ -2,7 +2,7 @@
 // PRODUCTION BACKEND ENDPOINT CONFIGURATION
 // ==========================================
 const USE_REAL_BACKEND = true; 
-const BACKEND_API_URL = "http://localhost:5000/api/schemes"; // Change to your live domain link when hosted (e.g., https://udayamx.com)
+const BACKEND_API_URL = "https://udyamx-8jth.onrender.com/api/schemes"; // Change to your live domain link when hosted (e.g., https://udayamx.com)
 
 // Clean view navigation matrix routing switches
 function navigateTo(pageId) {
