@@ -8,81 +8,30 @@
 </head>
 <body>
 
-    <!-- SCREEN 1: WELCOME HOMEPAGE -->
+    <!-- SCREEN 1: HOMEPAGE WELCOME SCREEN -->
     <div id="landingPage" class="page fade-in">
         <div class="landing-container">
-            <!-- LOGO PLACEHOLDER: Simply place an image named logo.png in the same folder -->
-            <div class="logo-box">
-                <img src="logo.png" alt="udayamX Logo" onerror="this.style.display='none';">
-                <h1 class="logo-title">udayamX</h1>
-            </div>
-            <p class="quote">"Start your own business with government support. We help you find the right funding plans and scholarships instantly."</p>
-            <button class="btn-primary" onclick="navigateTo('questionnairePage')">Find My Scheme ➔</button>
+            <h1 class="logo-title">udayamX</h1>
+            <p class="quote">"The best way to predict the future is to create it. Empowering your entrepreneurial journey."</p>
+            <button class="btn-primary" type="button" onclick="navigateTo('questionnairePage')">Get Started</button>
         </div>
     </div>
 
-    <!-- SCREEN 2: APPLICATION DETAILS -->
+    <!-- SCREEN 2: APPLICATION QUESTION PROFILE -->
     <div id="questionnairePage" class="page hidden">
         <div class="form-container">
-            <div class="form-header">
-                <img src="logo.png" alt="Logo" class="form-mini-logo" onerror="this.style.display='none';">
-                <h2>Tell us about your business idea</h2>
-            </div>
+            <h2>Find Funding Schemes For Your Startup</h2>
             <form id="schemeForm" onsubmit="handleFormSubmit(event)">
                 
-                <div class="section-title">Step 1: Personal Profile</div>
-                
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label for="age">Select Your Age</label>
-                        <input type="number" id="age" name="age" min="18" max="100" placeholder="Example: 25" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <select id="gender" name="gender" required>
-                            <option value="">-- Select --</option>
-                            <option value="Female">Female</option>
-                            <option value="Male">Male</option>
-                            <option value="Transgender">Other</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="age">Select Your Age</label>
+                    <input type="number" id="age" name="age" min="18" max="100" placeholder="e.g. 25" required>
                 </div>
-
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label for="caste">Social Category (Caste Group)</label>
-                        <select id="caste" name="caste" required>
-                            <option value="">-- Select --</option>
-                            <option value="General">General Category (Open)</option>
-                            <option value="OBC">OBC (Other Backward Classes)</option>
-                            <option value="SC">SC (Scheduled Caste)</option>
-                            <option value="ST">ST (Scheduled Tribe)</option>
-                            <option value="EWS">EWS (Economically Weaker Section)</option>
-                            <option value="Minority">Minority Community</option>
-                        </select>
-                        <p class="tooltip-text">ℹ️ We ask this because the government offers special low-interest loans or extra subsidies for specific social groups.</p>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="education">Education (Studied Upto)</label>
-                        <select id="education" name="education" required>
-                            <option value="">-- Select Qualification --</option>
-                            <option value="Below 10th">Below 10th Standard</option>
-                            <option value="12th Pass">10th / 12th Standard Pass</option>
-                            <option value="Diploma/ITI">Diploma / ITI Certificate Holder</option>
-                            <option value="Graduate">College Graduate (B.A, B.Sc, B.Tech, etc.)</option>
-                            <option value="Post Graduate">Post Graduate & Higher</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="section-title" style="margin-top: 1rem;">Step 2: Business & Budget Profile</div>
 
                 <div class="form-group">
                     <label for="state">Select Your State / UT</label>
                     <select id="state" name="state" required>
-                        <option value="">-- Select State --</option>
+                        <option value="">-- Choose State --</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
                         <option value="Assam">Assam</option>
@@ -123,61 +72,62 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="businessType">Enter Business Type / Sector</label>
-                    <input type="text" id="businessType" name="businessType" placeholder="Example: Kirana Shop, Poultry Farm, Tech Startup" required>
+                    <label for="caste">Select Social Category (Caste Group)</label>
+                    <select id="caste" name="caste" required>
+                        <option value="">-- Choose Category --</option>
+                        <option value="General">General Category</option>
+                        <option value="OBC">OBC (Other Backward Classes)</option>
+                        <option value="SC">SC (Scheduled Caste)</option>
+                        <option value="ST">ST (Scheduled Tribe)</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="budget">Estimated Startup Budget Requirement</label>
+                    <label for="education">Education (Studied Upto)</label>
+                    <select id="education" name="education" required>
+                        <option value="">-- Choose Education Level --</option>
+                        <option value="Under Matric">Below 10th Standard</option>
+                        <option value="12th Pass">10th / 12th Standard Pass</option>
+                        <option value="Diploma/ITI">Diploma / ITI Certificate Holder</option>
+                        <option value="Graduate">College Graduate</option>
+                        <option value="Post Graduate">Post Graduate & Higher</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessType">Enter Business Type</label>
+                    <input type="text" id="businessType" name="businessType" placeholder="e.g. Technology, Agriculture, Textile" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">Estimated Startup Budget</label>
                     <select id="budget" name="budget" required>
-                        <option value="">-- Select Budget Range --</option>
-                        <option value="low">Under ₹5 Lakhs (Micro Startups)</option>
-                        <option value="mid">₹5 Lakhs - ₹25 Lakhs (Small Scale)</option>
-                        <option value="high">Above ₹25 Lakhs (Medium to Large)</option>
+                        <option value="">-- Choose Budget Range --</option>
+                        <option value="low">Under ₹5 Lakhs</option>
+                        <option value="mid">₹5 Lakhs - ₹25 Lakhs</option>
+                        <option value="high">Above ₹25 Lakhs</option>
                     </select>
                 </div>
 
                 <div class="btn-group">
-                    <button type="button" class="btn-secondary" onclick="navigateTo('landingPage')">⬅ Back</button>
-                    <button type="submit" class="btn-primary">Search Government Schemes 🔍</button>
+                    <button type="button" class="btn-secondary" onclick="navigateTo('landingPage')">Back</button>
+                    <button type="submit" class="btn-primary">Find Schemes</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- SCREEN 3: RESULTS SCREEN -->
+    <!-- SCREEN 3: RESULTS CONTAINER VIEW -->
     <div id="resultsPage" class="page hidden">
         <div class="results-container">
-            <h2>Your Matching Government Schemes</h2>
-            <p class="results-subtext">Based on the details you filled in, these plans fit your profile best:</p>
-            
+            <h2>Matching Government Schemes For You</h2>
             <div id="activeFilters" class="filter-badges-container"></div>
-            
-            <div id="loadingSpinner" class="spinner-container hidden">
-                <div class="spinner"></div>
-                <p>Checking central and state government databases... Please wait.</p>
-            </div>
-
             <div id="schemesList" class="schemes-grid"></div>
-            
-            <div class="btn-group" style="margin-top: 2.5rem;">
-                <button class="btn-secondary" onclick="navigateTo('questionnairePage')" style="width: 48%;">⬅ Change My Answers</button>
-                <button class="btn-primary" onclick="window.print()" style="width: 48%; background-color: #0d9488;">Save as PDF / Print 📄</button>
-            </div>
+            <button class="btn-secondary" type="button" onclick="navigateTo('questionnairePage')" style="margin-top: 2rem; width: 100%;">Back to Questionnaire</button>
         </div>
     </div>
 
-    <script>
-        // BACKEND TOGGLE ENGINE: Set USE_REAL_BACKEND to true once the backend server is running!
-        const USE_REAL_BACKEND = false; 
-        const BACKEND_API_URL = "http://localhost:5000/api/schemes"; 
-
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.add('hidden');
-                page.classList.remove('fade-in');
-            });
-            const targetPage = document.getElementById(pageId);
-
-
-  
+    <!-- CLEAN MODULAR ASSET LOADING INVOCATION ROUTINE -->
+    <script src="script.js"></script>
+</body>
+</html>
