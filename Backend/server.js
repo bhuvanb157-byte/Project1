@@ -5,99 +5,80 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Security and parser middleware arrays
+// Essential security bypass and content parsing configurations
 app.use(cors());
 app.use(bodyParser.json());
 
-// Master production database array inside server storage memory
+// Master Live Government Schemes Data Dictionary Store
 const schemesDatabase = [
     {
         title: "Startup India Seed Fund Scheme (SISFS)",
-        desc: "Provides critical seed financing capital up to ₹20 Lakhs for validation of proof of concept, prototype engineering, and initial trial releases. Requires minimum Graduate qualification status.",
+        desc: "Provides critical seed financing capital up to ₹20 Lakhs for validation of proof of concept, prototype development, and product market deployment. Requires graduation status.",
         link: "https://startupindia.gov.in",
         budgets: ["mid", "high"],
-        castes: ["General", "OBC", "SC", "ST", "EWS", "Minority"],
-        minEducationTier: ["Graduate", "Post Graduate"],
-        deadline: "31-Mar-2027",
+        castes: ["General", "OBC", "SC", "ST"],
+        allowedEducation: ["Graduate", "Post Graduate"],
         tag: "Universal Seed Fund"
     },
     {
         title: "Pradhan Mantri Mudra Yojana (PMMY)",
-        desc: "Offers straightforward collateral-free business loans up to ₹10 Lakhs. Open to all educational levels.",
+        desc: "Offers straightforward collateral-free business loans scaling up to ₹10 Lakhs to micro setups. Accessible across all basic qualification backgrounds.",
         link: "https://mudra.org.in",
         budgets: ["low", "mid"],
-        castes: ["General", "OBC", "SC", "ST", "EWS", "Minority"],
-        minEducationTier: ["Under Matric", "12th Pass", "Diploma/ITI", "Graduate", "Post Graduate"],
-        deadline: "Open All Year",
+        castes: ["General", "OBC", "SC", "ST"],
+        allowedEducation: ["Under Matric", "12th Pass", "Diploma/ITI", "Graduate", "Post Graduate"],
         tag: "Collateral-Free Loan"
     },
     {
-        title: "Stand-Up India Scheme",
-        desc: "Mandates bank credit facilities between ₹10 Lakhs and ₹1 Crore. Specially reserved to support SC/ST categories or woman-led business units per branch.",
-        link: "https://standupmitra.in",
-        budgets: ["mid", "high"],
-        castes: ["General", "OBC", "SC", "ST", "EWS", "Minority"],
-        minEducationTier: ["12th Pass", "Diploma/ITI", "Graduate", "Post Graduate"],
-        deadline: "31-Dec-2026",
-        tag: "Marginalized Category Support",
-        isSpecialField: true
-    },
-    {
-        title: "Venture Capital Fund Scheme for SC Entrepreneurs",
-        desc: "Long-term concessional equity financial support and asset acceleration mechanisms optimized directly for Scheduled Caste business owners.",
+        title: "Venture Capital Fund Scheme for SC/ST Entrepreneurs",
+        desc: "Provides long-term concessional equity financial support and venture validation mechanisms exclusively optimized for SC and ST promoters holding a minimum technical or school certificate.",
         link: "https://ifciltd.com",
         budgets: ["mid", "high"],
-        castes: ["SC"],
-        minEducationTier: ["Diploma/ITI", "Graduate", "Post Graduate"],
-        deadline: "15-Nov-2026",
-        tag: "SC Venture Support"
+        castes: ["SC", "ST"],
+        allowedEducation: ["12th Pass", "Diploma/ITI", "Graduate", "Post Graduate"],
+        tag: "SC/ST Venture Support"
     },
     {
-        title: "National Minorities Development Support (NMDFC)",
-        desc: "Offers low-interest business micro-loans and working capital specifically provisioned for young entrepreneurs from minority backgrounds.",
-        link: "http://nmdfc.org",
-        budgets: ["low", "mid"],
-        castes: ["Minority"],
-        minEducationTier: ["Under Matric", "12th Pass", "Diploma/ITI", "Graduate", "Post Graduate"],
-        deadline: "Open All Year",
-        tag: "Minority Priority Credit"
+        title: "Stand-Up India Funding Mechanism",
+        desc: "Mandates greenfield project bank credit facilities between ₹10 Lakhs and ₹1 Crore. Specially reserved to support SC/ST categories or woman-led business units per branch.",
+        link: "https://standupmitra.in",
+        budgets: ["mid", "high"],
+        castes: ["General", "OBC", "SC", "ST"],
+        allowedEducation: ["12th Pass", "Diploma/ITI", "Graduate", "Post Graduate"],
+        tag: "Marginalized Category Support"
     }
 ];
 
-// POST API route to handle demographic sorting matching rules
+// Active Post Router Link
 app.post('/api/schemes', (req, res) => {
     try {
-        const { age, gender, caste, education, state, businessType, budget } = req.body;
+        const { age, state, caste, education, businessType, budget } = req.body;
 
-        // Execute Server-Side Processing Criteria
-        let matchedSchemes = schemesDatabase.filter(scheme => {
+        // Perform Server-Side Array Filtering Logic
+        let matched = schemesDatabase.filter(scheme => {
             const budgetMatch = scheme.budgets.includes(budget);
             const casteMatch = scheme.castes.includes(caste);
-            const educationMatch = scheme.minEducationTier.includes(education);
+            const educationMatch = scheme.allowedEducation.includes(education);
             
-            if (scheme.isSpecialField) {
-                return budgetMatch && educationMatch && (caste === "SC" || caste === "ST" || gender === "Female");
-            }
             return budgetMatch && casteMatch && educationMatch;
         });
 
-        // Generate custom state localized results array template inside dataset response packet
-        matchedSchemes.push({
+        // Generate dynamic state level grant template logic on-the-fly
+        matched.push({
             title: `${state} State Institutional Startup Grant`,
-            desc: `State-specific administrative funding platform custom-allocated to accelerate modern local ${businessType || 'business'} frameworks established here in ${state}.`,
-            link: "https://startupindia.gov.incontent/sih/en/state-startup-policies.html",
-            deadline: "31-Jan-2027",
+            desc: `State-specific administrative funding and workspace policy custom-allocated to accelerate modern local ${businessType || 'business'} enterprise setups running inside ${state}.`,
+            link: "https://startupindia.gov.in",
             tag: "State Level Benefit"
         });
 
-        return res.json(matchedSchemes);
+        return res.json(matched);
 
     } catch (error) {
-        console.error("Server Pipeline Error:", error);
+        console.error("API error environment trace:", error);
         return res.status(500).json({ error: "Internal Server Processing Failure" });
     }
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 udayamX API Backend operational at http://localhost:${PORT}`);
+    console.log(`🚀 udayamX API Backend operational live at http://localhost:${PORT}`);
 });
