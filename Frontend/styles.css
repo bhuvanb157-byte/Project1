@@ -1,4 +1,3 @@
-```css
 :root {
     --bg-soft-white: #f8fafc;
     --card-bg-white: #ffffff;
@@ -27,7 +26,7 @@ body {
     padding: 1.5rem;
 }
 
-/* SCREEN LAYOUT CONFIGURATION */
+/* CONTAINER AND RESPONSIVE WRAPPERS */
 .page {
     width: 100%;
     max-width: 740px;
@@ -46,9 +45,41 @@ body {
     transform: translateY(0);
 }
 
-/* HOMEPAGE CONTAINER */
+/* LOGO AND BRAND HEADER BOXES */
 .landing-container {
     text-align: center;
+}
+
+.logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-box img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--bg-soft-white);
+    padding-bottom: 1.25rem;
+}
+
+.form-mini-logo {
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 .logo-title {
@@ -56,7 +87,6 @@ body {
     font-weight: 800;
     letter-spacing: -2px;
     color: var(--text-navy);
-    margin-bottom: 1.5rem;
 }
 
 .quote {
@@ -69,7 +99,7 @@ body {
     margin-right: auto;
 }
 
-/* CARD LAYOUT PATTERNS */
+/* ELEVATED CONTAINER CARDS */
 .form-container, .results-container {
     background-color: var(--card-bg-white);
     padding: 3rem;
@@ -79,9 +109,7 @@ body {
 }
 
 h2 {
-    margin-bottom: 1rem;
     font-size: 1.8rem;
-    text-align: center;
     font-weight: 700;
     color: var(--text-navy);
 }
@@ -102,6 +130,7 @@ h2 {
     letter-spacing: 0.5px;
 }
 
+/* SMART LAYOUT SECTIONS */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -151,7 +180,7 @@ input:focus, select:focus {
     line-height: 1.4;
 }
 
-/* CORE UI CONTROLS */
+/* INTERACTIVE BUTTON CONTROLS */
 button {
     font-size: 1rem;
     padding: 0.95rem 2rem;
@@ -191,7 +220,7 @@ button:active {
     transform: scale(0.98);
 }
 
-/* SUMMARY CLUSTER LIST */
+/* PROFILE ATTRIBUTE DISPLAY BADGES */
 .filter-badges-container {
     display: flex;
     flex-wrap: wrap;
@@ -210,7 +239,7 @@ button:active {
     border: 1px solid var(--border-gray);
 }
 
-/* RETRIEVAL DELAY SPINNER */
+/* RETRIEVAL DELAY LOADING SPINNER */
 .spinner-container {
     display: flex;
     flex-direction: column;
@@ -237,7 +266,7 @@ button:active {
     100% { transform: rotate(360deg); }
 }
 
-/* SCHEME MATRIX DESIGN ELEMENTS */
+/* SCHEME MATRIX RESPONSE CARDS */
 .schemes-grid {
     display: flex;
     flex-direction: column;
@@ -306,10 +335,24 @@ button:active {
     padding: 2rem 0;
 }
 
-/* PRINT RULES */
+/* OFFLINE SYSTEM PRINT STYLING OVERRIDES */
 @media print {
-    body { background: white; color: black; }
-    .form-container, .btn-group, .apply-link, #landingPage, .spinner-container, .results-subtext { display: none !important; }
-    .results-container { box-shadow: none; border: none; background: white; }
-    .scheme-card { border: 1px solid #94a3b8; margin-bottom: 1rem; page-break-inside: avoid; }
+    body {
+        background: white;
+        color: black;
+    }
+    .form-container, .btn-group, .apply-link, #landingPage, .spinner-container, .results-subtext {
+        display: none !important;
+    }
+    .results-container {
+        box-shadow: none;
+        border: none;
+        background: white;
+    }
+    .scheme-card {
+        border: 1px solid #94a3b8;
+        margin-bottom: 1rem;
+        page-break-inside: avoid;
+    }
 }
+
