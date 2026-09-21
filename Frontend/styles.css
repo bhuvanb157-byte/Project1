@@ -1,3 +1,4 @@
+```css
 :root {
     --bg-soft-white: #f8fafc;
     --card-bg-white: #ffffff;
@@ -26,7 +27,7 @@ body {
     padding: 1.5rem;
 }
 
-/* CONTAINER AND RESPONSIVE WRAPPERS */
+/* SCREEN LAYOUT HOUSING */
 .page {
     width: 100%;
     max-width: 740px;
@@ -45,7 +46,7 @@ body {
     transform: translateY(0);
 }
 
-/* LOGO AND BRAND HEADER BOXES */
+/* BRAND HEADER AND LOGO STRUCTURES */
 .landing-container {
     text-align: center;
 }
@@ -99,7 +100,7 @@ body {
     margin-right: auto;
 }
 
-/* ELEVATED CONTAINER CARDS */
+/* CORE CONTAINER BOXES */
 .form-container, .results-container {
     background-color: var(--card-bg-white);
     padding: 3rem;
@@ -130,7 +131,6 @@ h2 {
     letter-spacing: 0.5px;
 }
 
-/* SMART LAYOUT SECTIONS */
 .form-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -138,10 +138,7 @@ h2 {
 }
 
 @media (max-width: 550px) {
-    .form-grid-2 {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
+    .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
 }
 
 .form-group {
@@ -180,7 +177,7 @@ input:focus, select:focus {
     line-height: 1.4;
 }
 
-/* INTERACTIVE BUTTON CONTROLS */
+/* BUTTONS */
 button {
     font-size: 1rem;
     padding: 0.95rem 2rem;
@@ -196,9 +193,7 @@ button {
     color: white;
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-blue-hover);
-}
+.btn-primary:hover { background-color: var(--primary-blue-hover); }
 
 .btn-secondary {
     background-color: #f1f5f9;
@@ -206,9 +201,7 @@ button {
     border: 1px solid var(--border-gray);
 }
 
-.btn-secondary:hover {
-    background-color: #e2e8f0;
-}
+.btn-secondary:hover { background-color: #e2e8f0; }
 
 .btn-group {
     display: flex;
@@ -216,11 +209,9 @@ button {
     margin-top: 2rem;
 }
 
-button:active {
-    transform: scale(0.98);
-}
+button:active { transform: scale(0.98); }
 
-/* PROFILE ATTRIBUTE DISPLAY BADGES */
+/* SUMMARY FILTER BADGES */
 .filter-badges-container {
     display: flex;
     flex-wrap: wrap;
@@ -266,7 +257,7 @@ button:active {
     100% { transform: rotate(360deg); }
 }
 
-/* SCHEME MATRIX RESPONSE CARDS */
+/* SCHEME ARCHITECTURE RESULT CARDS */
 .schemes-grid {
     display: flex;
     flex-direction: column;
@@ -316,6 +307,17 @@ button:active {
     margin-bottom: 1.25rem;
 }
 
+.deadline-block {
+    margin-top: 0.35rem;
+    font-size: 0.88rem;
+    color: #b45309; 
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.deadline-block strong { font-weight: 700; }
+
 .apply-link {
     display: inline-block;
     color: var(--primary-blue);
@@ -335,24 +337,9 @@ button:active {
     padding: 2rem 0;
 }
 
-/* OFFLINE SYSTEM PRINT STYLING OVERRIDES */
 @media print {
-    body {
-        background: white;
-        color: black;
-    }
-    .form-container, .btn-group, .apply-link, #landingPage, .spinner-container, .results-subtext {
-        display: none !important;
-    }
-    .results-container {
-        box-shadow: none;
-        border: none;
-        background: white;
-    }
-    .scheme-card {
-        border: 1px solid #94a3b8;
-        margin-bottom: 1rem;
-        page-break-inside: avoid;
-    }
+    body { background: white; color: black; }
+    .form-container, .btn-group, .apply-link, #landingPage, .spinner-container, .results-subtext { display: none !important; }
+    .results-container { box-shadow: none; border: none; background: white; }
+    .scheme-card { border: 1px solid #94a3b8; margin-bottom: 1rem; page-break-inside: avoid; }
 }
-
