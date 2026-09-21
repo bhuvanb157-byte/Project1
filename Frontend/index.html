@@ -11,16 +11,23 @@
     <!-- SCREEN 1: WELCOME HOMEPAGE -->
     <div id="landingPage" class="page fade-in">
         <div class="landing-container">
-            <h1 class="logo-title">udayamX</h1>
+            <!-- LOGO PLACEHOLDER: Place an image named logo.png in the same folder -->
+            <div class="logo-box">
+                <img src="logo.png" alt="udayamX Logo" onerror="this.style.display='none';">
+                <h1 class="logo-title">udayamX</h1>
+            </div>
             <p class="quote">"Start your own business with government support. We help you find the right funding plans and scholarships instantly."</p>
             <button class="btn-primary" onclick="navigateTo('questionnairePage')">Find My Scheme ➔</button>
         </div>
     </div>
 
-    <!-- SCREEN 2: SIMPLE APPLICATION DETAILS -->
+    <!-- SCREEN 2: APPLICATION DETAILS -->
     <div id="questionnairePage" class="page hidden">
         <div class="form-container">
-            <h2>Tell us about your business idea</h2>
+            <div class="form-header">
+                <img src="logo.png" alt="Logo" class="form-mini-logo" onerror="this.style.display='none';">
+                <h2>Tell us about your business idea</h2>
+            </div>
             <form id="schemeForm" onsubmit="handleFormSubmit(event)">
                 
                 <div class="section-title">Step 1: Personal Profile</div>
@@ -58,14 +65,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="education">Highest Education Level</label>
+                        <label for="education">Education (Studied Upto)</label>
                         <select id="education" name="education" required>
-                            <option value="">-- Select --</option>
-                            <option value="Under Matric">Below 10th Class</option>
-                            <option value="12th Pass">10th or 12th Class Pass</option>
-                            <option value="Diploma/ITI">Diploma / ITI Certificate</option>
+                            <option value="">-- Select Qualification --</option>
+                            <option value="Under Matric">Below 10th Standard</option>
+                            <option value="12th Pass">10th / 12th Standard Pass</option>
+                            <option value="Diploma/ITI">Diploma / ITI Certificate Holder</option>
                             <option value="Graduate">College Graduate (B.A, B.Sc, B.Tech, etc.)</option>
-                            <option value="Post Graduate">Post Graduate & Above</option>
+                            <option value="Post Graduate">Post Graduate & Higher</option>
                         </select>
                     </div>
                 </div>
@@ -138,25 +145,20 @@
         </div>
     </div>
 
-    <!-- SCREEN 3: MATURED RESULTS SCREEN -->
+    <!-- SCREEN 3: RESULTS SCREEN -->
     <div id="resultsPage" class="page hidden">
         <div class="results-container">
             <h2>Your Matching Government Schemes</h2>
             <p class="results-subtext">Based on the details you filled in, these plans fit your profile best:</p>
             
-            <div id="activeFilters" class="filter-badges-container">
-                <!-- Data tags get printed cleanly here -->
-            </div>
+            <div id="activeFilters" class="filter-badges-container"></div>
             
-            <!-- Accessible Loading Animation -->
             <div id="loadingSpinner" class="spinner-container hidden">
                 <div class="spinner"></div>
-                <p>Checking live central and state government portals... Please wait.</p>
+                <p>Checking central and state government databases... Please wait.</p>
             </div>
 
-            <div id="schemesList" class="schemes-grid">
-                <!-- Database cards render securely here -->
-            </div>
+            <div id="schemesList" class="schemes-grid"></div>
             
             <div class="btn-group" style="margin-top: 2.5rem;">
                 <button class="btn-secondary" onclick="navigateTo('questionnairePage')" style="width: 48%;">⬅ Change My Answers</button>
@@ -165,24 +167,16 @@
         </div>
     </div>
 
-    <!-- SCRIPT INFRASTRUCTURE -->
     <script>
+        const USE_REAL_BACKEND = false; 
+        const BACKEND_API_URL = "http://localhost:5000/api/schemes"; 
+
         function navigateTo(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.add('hidden');
                 page.classList.remove('fade-in');
             });
-            
             const targetPage = document.getElementById(pageId);
             targetPage.classList.remove('hidden');
-            setTimeout(() => {
-                targetPage.classList.add('fade-in');
-            }, 50);
-        }
 
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            // Clean object capture for backend developers
-            const userFormData = {
   
