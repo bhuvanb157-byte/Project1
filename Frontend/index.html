@@ -11,7 +11,7 @@
     <!-- SCREEN 1: WELCOME HOMEPAGE -->
     <div id="landingPage" class="page fade-in">
         <div class="landing-container">
-            <!-- LOGO PLACEHOLDER: Place an image named logo.png in the same folder -->
+            <!-- LOGO PLACEHOLDER: Simply place an image named logo.png in the same folder -->
             <div class="logo-box">
                 <img src="logo.png" alt="udayamX Logo" onerror="this.style.display='none';">
                 <h1 class="logo-title">udayamX</h1>
@@ -168,6 +168,7 @@
     </div>
 
     <script>
+        // BACKEND TOGGLE ENGINE: Set USE_REAL_BACKEND to true once the backend server is running!
         const USE_REAL_BACKEND = false; 
         const BACKEND_API_URL = "http://localhost:5000/api/schemes"; 
 
@@ -177,6 +178,6 @@
                 page.classList.remove('fade-in');
             });
             const targetPage = document.getElementById(pageId);
-            targetPage.classList.remove('hidden');
+
 
   
